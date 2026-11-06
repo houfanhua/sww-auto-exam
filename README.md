@@ -10,9 +10,15 @@
 
 ## 一键安装
 
-👉 **[点这里安装脚本](https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js)**
+| 线路 | 链接 | 说明 |
+|---|---|---|
+| ⭐ 推荐 | **[jsDelivr 安装](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js)** | CDN 加速，国内可直连 |
+| 备用 | **[ghproxy 安装](https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js)** | GitHub 镜像，更新最及时 |
+| 直连 | [raw.githubusercontent.com](https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js) | 需要能访问 GitHub 的网络环境 |
 
-Tampermonkey 会自动弹出安装页，点「安装」即可。之后脚本会自动跟随本仓库更新（`@updateURL` 已配置）。
+点链接后 Tampermonkey 会自动弹出安装页，点「安装」即可。
+
+> 📦 **下载文件安装**：如果点链接没反应，点页面右上角绿色 `Code` → `Download ZIP`，解压后把 `sww-auto-exam.user.js` 直接拖进浏览器窗口，Tampermonkey 同样会弹出安装页。
 
 > ⚠️ **如果你之前装过桌面上那份 `双卫网自动答题.user.js`，请先在油猴管理面板里把它删掉再装这个**，否则两个脚本同时运行会互相抢答、日志翻倍。
 
@@ -146,6 +152,9 @@ Tampermonkey 会自动弹出安装页，点「安装」即可。之后脚本会�
 
 **Q：答题搜不到怎么办？**
 按 `本地题库 → 大模型 → 联网搜题` 的顺序试。医学继续教育题在 360 搜索命中率最高。也可以自己勾选后点「记录答案」入库。
+
+**Q：脚本怎么更新到新版本？**
+油猴每 24 小时按脚本里的 `@updateURL`（走 ghproxy 镜像，国内可达）检查一次，有新版会在管理面板提示。手动更新：油猴面板 → 本脚本 → 「检查更新」，或直接再点一次上面的安装链接。
 
 **Q：换电脑了，题库会丢吗？**
 题库存在油猴存储里。用 Tampermonkey 自带的「导出/备份」功能，或本仓库的 `@updateURL` 机制都只同步脚本、不同步数据，需要手动导出。
