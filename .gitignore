@@ -1,0 +1,32 @@
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
+*.old
+*.swp
+*~
+
+# 本地配置与密钥（绝不提交）
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+pushplus_token.txt
+
+# 题库 / 学习记录导出（含个人数据）
+bank*.json
+*_ledger*.json
+track_log.json
