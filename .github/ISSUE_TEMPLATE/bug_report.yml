@@ -1,0 +1,65 @@
+name: 🐛 Bug 报告
+description: 脚本某处工作不正常（不答题 / 不推进 / 报错等）
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请先确认：
+        1. 你装的是 **本仓库** 的脚本，且 **只装了一个版本**（旧版同名脚本要先卸载）；
+        2. README 的 [常见问题](https://github.com/houfanhua/sww-auto-exam#常见问题) 里没有你的情况。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么？
+      description: 期望的行为 vs 实际的行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开「…」页面
+        2. 点击「…」按钮
+        3. 出现 …
+
+  - type: dropdown
+    id: page-type
+    attributes:
+      label: 出问题的页面类型
+      options:
+        - 答题页
+        - 课程详情页（projectDetail）
+        - 视频播放页（studyVideo）
+        - 其他 / 不确定
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: 脚本日志（重要）
+      description: |
+        在脚本工具条点「复制日志」，把内容粘贴到这里（含 [自检] 行和 --- 状态 --- 的 JSON）。
+        没有日志的 bug 很难定位，请务必提供。
+      render: shell
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境
+      placeholder: |
+        - 浏览器及版本：如 Edge 130
+        - Tampermonkey 版本：如 5.3
+        - 脚本版本：如 4.7
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 截图（可选）
+      description: 注意打码个人账号信息

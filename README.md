@@ -6,6 +6,14 @@
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![platform](https://img.shields.io/badge/platform-Tampermonkey-orange.svg)](https://www.tampermonkey.net/)
 
+![预览](docs/screenshot-play.png)
+
+*播放页实拍：左下角脚本工具条 · 右下角巡航日志面板（自动处理弹窗、自动推进课时）*
+
+| 工具条 | 日志面板 |
+|---|---|
+| ![工具条](docs/screenshot-toolbar.png) | ![日志面板](docs/screenshot-log.png) |
+
 ---
 
 ## 一键安装

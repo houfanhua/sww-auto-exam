@@ -1,0 +1,23 @@
+name: ✨ 功能建议
+description: 想让脚本多做点什么 / 少做点什么
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决的问题或场景
+      description: 例如「某类弹窗脚本处理不了」「希望支持某站点」
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 期望的做法
+      description: 你理想中它应该怎么表现
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 相关页面的结构、日志片段、截图等
