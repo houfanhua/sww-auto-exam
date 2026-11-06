@@ -9,8 +9,8 @@
 // @license      MIT
 // @homepageURL  https://github.com/houfanhua/sww-auto-exam
 // @supportURL   https://github.com/houfanhua/sww-auto-exam/issues
-// @updateURL    https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js
-// @downloadURL  https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js
+// @updateURL    https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js
+// @downloadURL  https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js
 // @match        *://sww.com.cn/*
 // @match        *://*.sww.com.cn/*
 // @grant        GM_xmlhttpRequest

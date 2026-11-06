@@ -12,11 +12,14 @@
 
 | 线路 | 链接 | 说明 |
 |---|---|---|
-| ⭐ 推荐 | **[jsDelivr 安装](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js)** | CDN 加速，国内可直连 |
+| ⭐ 推荐 | **[jsDelivr 安装](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js)** | CDN 加速，国内可直连，始终取 main 最新版 |
+| 锁定版本 | [jsDelivr v4.7.0](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@v4.7.0/sww-auto-exam.user.js) | 固定 tag，内容不会变（排障对比用） |
 | 备用 | **[ghproxy 安装](https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js)** | GitHub 镜像，更新最及时 |
 | 直连 | [raw.githubusercontent.com](https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js) | 需要能访问 GitHub 的网络环境 |
 
 点链接后 Tampermonkey 会自动弹出安装页，点「安装」即可。
+
+> CDN 有缓存，刚发版时可能装到几小时前的版本，油猴会在 24 小时内自动更新到最新，无影响。
 
 > 📦 **下载文件安装**：如果点链接没反应，点页面右上角绿色 `Code` → `Download ZIP`，解压后把 `sww-auto-exam.user.js` 直接拖进浏览器窗口，Tampermonkey 同样会弹出安装页。
 
