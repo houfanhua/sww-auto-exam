@@ -12,14 +12,14 @@
 
 | 线路 | 链接 | 说明 |
 |---|---|---|
-| ⭐ 推荐 | **[jsDelivr 安装](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js)** | CDN 加速，国内可直连，始终取 main 最新版 |
-| 锁定版本 | [jsDelivr v4.7.0](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@v4.7.0/sww-auto-exam.user.js) | 固定 tag，内容不会变（排障对比用） |
-| 备用 | **[ghproxy 安装](https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js)** | GitHub 镜像，更新最及时 |
+| ⭐ 推荐 | **[jsDelivr 安装（v4.7.0）](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@v4.7.0/sww-auto-exam.user.js)** | CDN 加速，国内可直连，内容固定不会装错；装好后油猴会自动更新到新版 |
+| 最新主干 | [jsDelivr @main](https://fastly.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js) | 始终指向最新提交，但 CDN 有缓存，刚发版时可能滞后几小时 |
+| 备用 | **[ghproxy 安装](https://ghproxy.net/https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js)** | GitHub 镜像 |
 | 直连 | [raw.githubusercontent.com](https://raw.githubusercontent.com/houfanhua/sww-auto-exam/main/sww-auto-exam.user.js) | 需要能访问 GitHub 的网络环境 |
 
 点链接后 Tampermonkey 会自动弹出安装页，点「安装」即可。
 
-> CDN 有缓存，刚发版时可能装到几小时前的版本，油猴会在 24 小时内自动更新到最新，无影响。
+> CDN 有缓存，刚发版时 @main 可能装到几小时前的版本，油猴会在 24 小时内自动更新到最新，无影响；着急用新版就走上面的固定版本链接。
 
 > 📦 **下载文件安装**：如果点链接没反应，点页面右上角绿色 `Code` → `Download ZIP`，解压后把 `sww-auto-exam.user.js` 直接拖进浏览器窗口，Tampermonkey 同样会弹出安装页。
 
@@ -178,9 +178,26 @@ sww-auto-exam/
 ## 开发
 
 - 纯原生 JavaScript，无构建、无依赖，单文件可直接阅读与调试
-- 语法检查：`node --check sww-auto-exam.user.js`
-- 改完记得同步更新 `// @version` 与 `CHANGELOG.md`，推送后油猴会自动拉取新版本
+- 语法检查：`node --check sww-auto-exam.user.js`（CI 也会跑，见 `.github/workflows/ci.yml`）
+- 改完记得同步更新 `// @version` 与 `CHANGELOG.md`
 - 调试：油猴面板 → 本脚本 → 编辑 → 控制台；或页面里点「巡航状态」「复制日志」
+
+### 发版流程
+
+```bash
+# 1. 改脚本，把 // @version 与 CHANGELOG.md 一起更新
+# 2. 提交推送
+git add -A && git commit -m "feat: ..." && git push
+
+# 3. 打 tag（同时用于「固定版本」安装链接）
+git tag -a v4.8.0 -m "v4.8.0" && git push origin v4.8.0
+
+# 4. 刷新 CDN 缓存，否则用户最多要等 12 小时才能检测到新版
+curl "https://purge.jsdelivr.net/gh/houfanhua/sww-auto-exam@main/sww-auto-exam.user.js"
+
+# 5. 发 Release（附件带上脚本本体）
+gh release create v4.8.0 sww-auto-exam.user.js --title "v4.8.0" --notes "..."
+```
 
 ---
 
