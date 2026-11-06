@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: 脚本语法与元信息检查
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 语法检查（node --check）
+        run: node --check sww-auto-exam.user.js
+
+      - name: 检查 UserScript 头部必填字段
+        run: |
+          set -e
+          FILE=sww-auto-exam.user.js
+          for key in "@name" "@namespace" "@version" "@description" "@match"; do
+            if ! grep -q "^// $key" "$FILE"; then
+              echo "::error::缺少 UserScript 元信息 $key"
+              exit 1
+            fi
+          done
+          echo "元信息检查通过"
+
+      - name: 检查版本号与 CHANGELOG 是否对应
+        run: |
+          set -e
+          VER=$(grep -m1 '^// @version' sww-auto-exam.user.js | awk '{print $3}')
+          echo "脚本版本：$VER"
+          if ! grep -q "^## \[$VER\]" CHANGELOG.md; then
+            echo "::warning::CHANGELOG.md 中没有 [$VER] 的条目，请补充更新日志"
+          fi
+
+      - name: 检查是否误提交密钥
+        run: |
+          set -e
+          if grep -nE '(sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16})' sww-auto-exam.user.js; then
+            echo "::error::疑似提交了密钥"
+            exit 1
+          fi
+          echo "未发现疑似密钥"
