@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
+  # 有意不监听 push：每次提交都跑 CI 会白白消耗 Actions 额度。
+  # 语法检查可随时在 Actions 页面点 "Run workflow" 手动执行。
   pull_request:
     branches: [main]
   workflow_dispatch:
